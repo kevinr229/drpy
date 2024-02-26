@@ -1,6 +1,6 @@
 # 基于的基础镜像-在dockerhub找
-# FROM silverlogic/python3.8
-FROM python:3.7-slim-buster
+FROM python3.8.8
+# FROM python:3.7-slim-buster
 # 添加描述信息
 MAINTAINER python3.7+drpy+supervisord by "hjdhnx" for amd64
 # 设置app文件夹是工作目录
@@ -34,6 +34,7 @@ ADD app.sh /etc/autostart/
 RUN chmod +x /etc/autostart/app.sh && apt-get clean && apt-get update
 # RUN apt-get install python3-lxml -y
 # 执行指令，换源并安装依赖 设置默认pip源
+RUN python -m pip install --upgrade pip
 RUN pip install -i https://mirrors.cloud.tencent.com/pypi/simple --upgrade pip \
     && pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
 #   \  && pip config set global.extra-index-url https://www.piwheels.org/simple
@@ -68,13 +69,13 @@ EXPOSE 5705 9001
 # ENV LANGUAGE=zh_CN.utf8
 # RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 # 执行命令
-# CMD [ "python", "/root/sd/pywork/dr_py/app.py" ]
+CMD [ "python", "/root/sd/pywork/dr_py/app.py" ]
 # supervisord -c /root/sd/pywork/dr_py/super/flask.conf
 # CMD [ "supervisord","-c", "/root/sd/pywork/dr_py/super/flask.conf" ]
 # ENTRYPOINT supervisord -c /root/sd/pywork/dr_py/super/flask.conf
 # ENTRYPOINT -c /root/sd/pywork/dr_py/super/flask.conf
 # CMD /bin/bash
 # 启动容器时，执行脚本
-ENTRYPOINT ["/etc/autostart/app.sh","flask"]
+# ENTRYPOINT ["/etc/autostart/app.sh","flask"]
 # CMD supervisord -c /root/sd/pywork/dr_py/super/flask.conf && /bin/bash
 

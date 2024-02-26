@@ -44,7 +44,8 @@ git clone https://github.com/hjdhnx/dr_py.git
 
 #进入目录
 cd dr_py
-
+#WARNING: You are using pip version 20.2.3; however, version 24.0 is available.
+#python -m pip install --upgrade pip
 #换源
 pip config set global.index-url https://mirrors.cloud.tencent.com/pypi/simple
 
