@@ -112,8 +112,7 @@
         "epg":"http://epg.112114.xyz/?ch={name}&date={date}",
         "logo":"http://epg.112114.xyz/logo/{name}.png",
         "ua":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36"
-    },
-    {"group":"redirect","channels":[{"name":"直播","urls":["proxy://do=live&type=txt&ext={{live_url}}"]}]}
+    }
 ],
 "sniffer": {
     "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 Edg/105.0.1343.27",
